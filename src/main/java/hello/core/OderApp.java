@@ -25,5 +25,5 @@ public class OderApp {
 		System.out.println("order = " + order);
 		System.out.println("order = " + order.calculatePrice());
 	}
-
+   
 }

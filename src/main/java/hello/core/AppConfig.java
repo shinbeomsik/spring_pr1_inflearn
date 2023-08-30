@@ -28,7 +28,7 @@ public class AppConfig {
 	public DiscountPolicy discountPolicy() {
 		//return new FixDiscountPolicy();  //여기만 바꾸면 정해진 금액의 할인 아니면 비율로 할인 이렇게 설정가능
 		return new RateDiscountPolicy();   //이렇게 되면 구성 역활을 담당하는  AppConfig만 바꾸면된다
-	}                                      // 사용 역활을 담당하는 어떤 코드들도 번경할 필요없다.
+	}                                      // 사용 역활을 담당하는 어떤 코드들도 번경할 필요없다. 
 }
 
 // 이렇게 되면 에플리케이션 전체 구성이 어떻게 되어있는지 빠르게 파악할수 있다.
