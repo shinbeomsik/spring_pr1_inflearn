@@ -1,0 +1,18 @@
+diff a/src/main/java/hello/core/MemberApp.java b/src/main/java/hello/core/MemberApp.java	(rejected hunks)
+@@ -8,14 +8,8 @@
+ public class MemberApp {
+ 
+ 	public static void main(String[] args) {
+-	//	AppConfig appConfig = new AppConfig();
+-	//	MemberService memberService = appConfig.memberService();
+-		
+-		
+-		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+-		MemberService memberService = applicationContext.getBean("memberService" ,MemberService.class);
+-		
+-		
++		AppConfig appConfig = new AppConfig();
++		MemberService memberService = appConfig.memberService();
+ 		Member member = new Member(1L, "memberA", Grade.VIP);
+ 		memberService.join(member);
+ 		
