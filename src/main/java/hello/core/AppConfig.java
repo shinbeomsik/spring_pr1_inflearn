@@ -15,20 +15,38 @@ import hello.core.order.OrderServiceImpl;
 
 @Configuration
 public class AppConfig {
-
+	
+	// @Bean memberService호출하면 --> new MemoryMemberRepository()을 호출
+	// @Bean orderService호출 --> new MemoryMemberRepository() 을 호출
+	
+	// 가장 먼저 call AppConfig.memberService 호출                  (실행되는 순서는 다를수있다!) ==>여기는 우리가 생각할때
+	// 그다음   call AppConfig.memberRepository 호출
+	// 그다음 call AppConfig.memberRepository 호출
+	// 그다음call AppConfig.orderService 호출
+	// 마지막 call AppConfig.memberRepository 호출
+	
+	
+	//==-===
+	// call AppConfig.memberService
+	// call AppConfig.memberRepository
+	// call AppConfig.orderService           실제로는 이렇게 호출이됨
+	
 	@Bean
 	public MemberService memberService() {
+		System.out.println("call AppConfig.memberService");
 		return new MemberServiceImpl(memberRepository()); // 생성자주입
 	}
 
 	@Bean
 	public MemberRepository memberRepository() {
+		System.out.println("call AppConfig.memberRepository");
 		return new MemoryMemberRepository();
 	}
 
 	// └ 이거 리턴타입은 구체클래스가 아니라 인터페이스를 선택해야됨
 	@Bean
 	public OrderService orderService() {
+		System.out.println("call AppConfig.orderService");
 		return new OrderServiceImpl(memberRepository(), discountPolicy());
 	}
 
