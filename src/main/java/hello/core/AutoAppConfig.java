@@ -1,8 +1,12 @@
 package hello.core;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
+
+import hello.core.member.MemberRepository;
+import hello.core.member.MemoryMemberRepository;
 
 @Configuration
 @ComponentScan(
@@ -16,4 +20,8 @@ import org.springframework.context.annotation.FilterType;
 //스프링부트는 @SpringBootApplication(시작과 동시에 만들어지는 파일) 여기에도 @ComponentScan이 있긴하다 그래서 자동으로 등록
 public class AutoAppConfig {
 	
+	@Bean(name = "memoryMemberRepository")
+	 MemberRepository memberRepository() {
+		return new MemoryMemberRepository();
+	}
 }
