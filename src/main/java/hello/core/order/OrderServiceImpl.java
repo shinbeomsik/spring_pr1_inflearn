@@ -8,15 +8,17 @@ import hello.core.discount.FixDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 	
 	private final MemberRepository memberRepository;
 	private final DiscountPolicy discountPolicy;
 	
 	
-	@Autowired 
+	@Autowired  //이거 한곳에만  있으면 생략가능
 	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
  		this.memberRepository = memberRepository;
 		this.discountPolicy = discountPolicy;
