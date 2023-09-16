@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
 import hello.core.member.Member;
@@ -20,7 +21,7 @@ public class OrderServiceImpl implements OrderService {
 
 	// @RequiredArgsConstructor이게 있으면 자동으로 이 밑에 있는걸 만들어준다.!!!
 	@Autowired // 이거 한곳에만 있으면 생략가능
-	public OrderServiceImpl(MemberRepository memberRepository,  DiscountPolicy discountPolicy) {
+	public OrderServiceImpl(MemberRepository memberRepository,  @MainDiscountPolicy DiscountPolicy discountPolicy) {
 		this.memberRepository = memberRepository;
 		this.discountPolicy = discountPolicy;
 	}
