@@ -20,8 +20,8 @@ import hello.core.member.MemoryMemberRepository;
 //스프링부트는 @SpringBootApplication(시작과 동시에 만들어지는 파일) 여기에도 @ComponentScan이 있긴하다 그래서 자동으로 등록
 public class AutoAppConfig {
 	
-	@Bean(name = "memoryMemberRepository")
-	 MemberRepository memberRepository() {
-		return new MemoryMemberRepository();
-	}
+	/*
+	 * @Bean(name = "memoryMemberRepository") MemberRepository memberRepository() {
+	 * return new MemoryMemberRepository(); }
+	 */
 }

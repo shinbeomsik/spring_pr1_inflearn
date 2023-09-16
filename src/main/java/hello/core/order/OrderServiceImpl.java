@@ -18,11 +18,11 @@ public class OrderServiceImpl implements OrderService {
 	private final DiscountPolicy discountPolicy;
 	
 	
-	@Autowired  //이거 한곳에만  있으면 생략가능
-	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
- 		this.memberRepository = memberRepository;
-		this.discountPolicy = discountPolicy;
-	}
+	/*  @RequiredArgsConstructor이게 있으면 자동으로 이 밑에 있는걸 만들어준다.!!!
+	 * @Autowired //이거 한곳에만 있으면 생략가능 public OrderServiceImpl(MemberRepository
+	 * memberRepository, DiscountPolicy discountPolicy) { this.memberRepository =
+	 * memberRepository; this.discountPolicy = discountPolicy; }
+	 */
  
 	@Override
 	public Order createOrder(Long memberId, String itemName, int itemPrice) {
