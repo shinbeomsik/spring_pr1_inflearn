@@ -15,14 +15,16 @@ import lombok.RequiredArgsConstructor;
 public class LogDemoController {
 	
 	private final LogDemoService logDemoService;
-	private final ObjectProvider<MyLogger>  myLoggerProvider;
+	//private final ObjectProvider<MyLogger>  myLoggerProvider;
+	private final MyLogger  myLogger;
 	
 	
 	@RequestMapping("log-demo")
 	@ResponseBody
 	public String logDemo(HttpServletRequest requset) throws InterruptedException {
-		MyLogger myLogger = myLoggerProvider.getObject();
+		//MyLogger myLogger = myLoggerProvider.getObject();
 		String requestURL = requset.getRequestURI().toString();
+		System.out.println("myLogger = " + myLogger.getClass());
 		myLogger.setRequestURL(requestURL);
 		
 		myLogger.log("controller test");
